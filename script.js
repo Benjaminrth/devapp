@@ -1,14 +1,4 @@
-document.getElementById('txtChatMessage').addEventListener('input', function() {
-    const input = this.value.trim();
-    const sendButton = document.getElementById('send-button');
-    if (input) {
-        sendButton.disabled = false;
-        sendButton.classList.remove('chat-input__form__send--inactive');
-    } else {
-        sendButton.disabled = true;
-        sendButton.classList.add('chat-input__form__send--inactive');
-    }
-});
+
 
 document.getElementById('send-button').addEventListener('click', function() {
     const input = document.getElementById('txtChatMessage');
