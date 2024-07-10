@@ -4,6 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatInput = document.getElementById('txtChatMessage');
 
   sendButton.addEventListener('click', () => {
+    sendMessage();
+  });
+
+  chatInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      sendMessage();
+    }
+  });
+
+  function sendMessage() {
     const message = chatInput.value.trim();
     if (message) {
       const bubble = document.createElement('li');
@@ -23,16 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>`;
       chatBubbles.appendChild(bubble);
       chatInput.value = '';
+      chatInput.focus();
     }
-  });
+  }
 
-  chatInput.addEventListener('input', () => {
-    if (chatInput.value.trim()) {
-      sendButton.removeAttribute('disabled');
-      sendButton.classList.remove('chat-input__form__send--inactive');
-    } else {
-      sendButton.setAttribute('disabled', 'true');
-      sendButton.classList.add('chat-input__form__send--inactive');
-    }
-  });
-});
+  chatInput.add
