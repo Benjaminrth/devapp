@@ -3,53 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat Application</title>
+  <title>Chat Transcript</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="chat__container">
-    <div class="chat-app__wrapper--open chat-app__wrapper" style="height: 563px; top: 120px;">
-      <div class="chat-app">
-        <div class="chat-header">
-          <div class="chat-header__title">
-            <h2>Everyday Banking</h2>
-          </div>
-          <button class="chat-header__close">
-            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjlweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgOSAxNiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNDYuMiAoNDQ0OTYpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPmljb25NaW5pbWlzZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGZpbGw9Im5vbmUiIHN0cm9rZT0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iU3ltYm9scyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgICAgIDxnIGlkPSJORC1IZWFkZXItbGFyZ2UtLS13aXRoLWF2YXRhciIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM3Ny4wMDAwMDAsIC0zNC4wMDAwMDApIiBmaWxsPSIjMzkzNTM2Ij4KICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJpY29uTWluaW1pc2UiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3Ni4wMDAwMDAsIDM0LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1LjAwMDAwMCwgOC4wMDAwMDApIHJvdGF0ZSgtMTgwLjAwMDAwMCkgdHJhbnNsYXRlKC01LjAwMDAwMCwgLTguMDAwMDAwKSB0cmFuc2xhdGUoMC4wMDAwMDAwLCAwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gcG9pbnRzPSI5IDEuNzggMi42OSA4LjAzIDkgMTQuMjggNy45NDI1IDE1LjM0NSAwLjU2NzUgOC4wMyA3Ljk0MjUgMC43MjI1Ij48L3BvbHlnb24+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="Close">
-          </button>
+    <div class="chat-app__wrapper">
+      <div class="chat-header">
+        <div class="chat-header__title">
+          <h2>Everyday Banking</h2>
         </div>
-        <div class="chat-app__chat-feed-container">
-          <div class="chat-feed">
-            <div class="chat-feed__scrollable-container">
-              <ul id="chat-bubbles" class="chat-feed__chat-bubbles"></ul>
+      </div>
+      <div class="chat-feed" id="chat-feed">
+        <ul class="chat-feed__chat-bubbles" id="chat-feed-bubbles">
+          <li class="chat-feed-item chat-feed-item--from-them">
+            <div class="chat-bubble chat-bubble--from-them">
+              <div class="chat-bubble__content">09 Jul 2024 PENDING: CWH NORTH SYDNEY NORTH SYDNEY , 0709 – $11.99</div>
             </div>
-          </div>
-        </div>
-        <div class="chat-input">
-          <form class="chat-input__form">
-            <label for="txtChatMessage" class="chat-input__form__label">
-              <span class="screen-reader-text">Ask a question</span>
-            </label>
-            <textarea id="txtChatMessage" type="text" class="chat-input__form__input" maxlength="110" placeholder="Ask a question" autocomplete="off" rows="1"></textarea>
-            <button id="send-button" class="chat-input__form__send" type="button">
-              <img class="chat-input__form__send__icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGMEYwRjAiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRDNEMkQyIiBkPSJNMTkuMzMgMjYuOTMybC03LjcyLTcuNzIgNy43Mi03LjQ3MiAxLjk0NyAxLjk0Ny00LjM3OCA0LjE4NWgxMS4yODR2Mi43NjJIMTYuOWw0LjM3OCA0LjM1eiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="Send">
-            </button>
-          </form>
-        </div>
+          </li>
+          <li class="chat-feed-item chat-feed-item--from-them">
+            <div class="chat-bubble chat-bubble--from-them">
+              <div class="chat-bubble__content">09 Jul 2024 PENDING: North Sydney Council North Sydney , 0709 – $2.70</div>
+            </div>
+          </li>
+          <li class="chat-feed-item chat-feed-item--from-them">
+            <div class="chat-bubble chat-bubble--from-them">
+              <div class="chat-bubble__content">These transactions are currently pending so I’m unable to close your account. It usually takes about 3 to 5 business days to process a transaction, although it can take up to 10 business days. Once your account is at $0 and has no pending transactions, please message us again to close your account.</div>
+            </div>
+          </li>
+          <li class="chat-feed-item chat-feed-item--from-them">
+            <div class="chat-bubble chat-bubble--from-them">
+              <div class="chat-bubble__content">We’re here if you need us. If you still need our help, reply here and we’ll get back to you as soon as we can. If we don’t hear from you, we’ll close this enquiry in a few days.</div>
+            </div>
+          </li>
+          <li class="chat-feed-item chat-feed-item--from-me">
+            <div class="chat-bubble chat-bubble--from-me">
+              <div class="chat-bubble__content">Okay that’s it thanks</div>
+              <div class="chat-bubble__time">Today, 8:12 pm</div>
+            </div>
+          </li>
+          <li class="chat-feed-item chat-feed-item--from-me">
+            <div class="chat-bubble chat-bubble--from-me">
+              <div class="chat-bubble__content">Close chat</div>
+              <div class="chat-bubble__time">Today, 8:13 pm</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-closed-message">
+        <p>Chat closed</p>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker.js').then(registration => {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }, err => {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  </script>
 </body>
 </html>
