@@ -1,9 +1,0 @@
-{
-  "name": "Chat Application",
-  "short_name": "ChatApp",
-  "start_url": ".",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "description": "A chat application that behaves like a native app."
-}
